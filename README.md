@@ -52,3 +52,11 @@ This produces `build/NppSwaggerPanel/` and `build/NppSwaggerPanel.zip`.
 - [Swagger UI](https://github.com/swagger-api/swagger-ui) (Apache-2.0)
 - [js-yaml](https://github.com/nodeca/js-yaml) (MIT)
 - Plugin API headers from [nextpad-plus-plus-macos](https://github.com/nextpad-plus-plus/nextpad-plus-plus-macos); Scintilla headers (Scintilla license)
+
+## Security
+
+See [SECURITY.md](SECURITY.md): the plugin makes no network connections of its own and stores nothing.
+
+## License
+
+MIT, see [LICENSE](LICENSE). Bundled Swagger UI is Apache-2.0 and js-yaml is MIT.

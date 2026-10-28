@@ -36,7 +36,7 @@ window.renderSpec = function (text) {
   }
   msg.style.display = 'none';
   const y = window.scrollY;
-  SwaggerUIBundle({ spec, dom_id: '#ui', deepLinking: false });
+  SwaggerUIBundle({ spec, dom_id: '#ui', deepLinking: false, validatorUrl: null });
   window.scrollTo(0, y);
 };
 </script>
