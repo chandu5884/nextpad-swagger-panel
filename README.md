@@ -6,9 +6,25 @@ A [Nextpad++](https://github.com/nextpad-plus-plus) plugin that shows the open S
 - Works offline: Swagger UI and js-yaml are bundled
 - Universal binary (Apple Silicon + Intel), macOS 11+
 
+## Download
+
+**[⬇ Download NppSwaggerPanel.zip](https://github.com/chandu5884/nextpad-swagger-panel/releases/latest/download/NppSwaggerPanel.zip)** (latest version)
+
+All versions: [Releases page](https://github.com/chandu5884/nextpad-swagger-panel/releases)
+
 ## Install
 
-1. Download `NppSwaggerPanel.zip` from Releases and unzip it.
+### Option A: one command (Terminal)
+
+Downloads the latest version and installs it, then restart Nextpad++:
+
+```bash
+cd /tmp && curl -fL -o NppSwaggerPanel.zip https://github.com/chandu5884/nextpad-swagger-panel/releases/latest/download/NppSwaggerPanel.zip && rm -rf ~/Library/Application\ Support/Nextpad++/plugins/NppSwaggerPanel && unzip -oq NppSwaggerPanel.zip -d ~/Library/Application\ Support/Nextpad++/plugins/ && xattr -dr com.apple.quarantine ~/Library/Application\ Support/Nextpad++/plugins/NppSwaggerPanel
+```
+
+### Option B: by hand
+
+1. Download `NppSwaggerPanel.zip` using the link above and unzip it.
 2. Copy the `NppSwaggerPanel` folder (the `.dylib` plus its `resources` folder) into:
    `~/Library/Application Support/Nextpad++/plugins/`
 3. macOS blocks plugins downloaded from the internet, so clear the quarantine flag:
