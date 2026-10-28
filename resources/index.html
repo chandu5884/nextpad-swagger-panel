@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="swagger-ui.css">
+<style>
+  body { margin: 0; background: #fff; }
+  #msg { font: 13px -apple-system, sans-serif; color: #666; padding: 24px; }
+  #msg.err { color: #b00020; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div id="msg">Open a Swagger / OpenAPI file (.yaml or .json) to see it here.</div>
+<div id="ui"></div>
+<script src="swagger-ui-bundle.js"></script>
+<script src="js-yaml.min.js"></script>
+<script>
+// Called by the plugin with the current document's text.
+window.renderSpec = function (text) {
+  const msg = document.getElementById('msg');
+  let spec;
+  try {
+    spec = text.trim().startsWith('{') ? JSON.parse(text) : jsyaml.load(text);
+  } catch (e) {
+    msg.className = 'err';
+    msg.textContent = 'Could not parse this file as JSON or YAML:\n' + e.message;
+    msg.style.display = '';
+    return;
+  }
+  if (!spec || typeof spec !== 'object' || !(spec.openapi || spec.swagger)) {
+    msg.className = '';
+    msg.textContent = 'This file is not a Swagger / OpenAPI spec (no "openapi" or "swagger" field).';
+    msg.style.display = '';
+    document.getElementById('ui').innerHTML = '';
+    return;
+  }
+  msg.style.display = 'none';
+  const y = window.scrollY;
+  SwaggerUIBundle({ spec, dom_id: '#ui', deepLinking: false });
+  window.scrollTo(0, y);
+};
+</script>
+</body>
+</html>
